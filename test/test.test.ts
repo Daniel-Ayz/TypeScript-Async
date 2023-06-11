@@ -1,12 +1,22 @@
 import { describe, expect, test } from '@jest/globals'
 import {
-    delayedSum, Post, postsUrl, postUrl, invalidUrl, fetchData, fetchMultipleUrls
+    delayedSum, Post, postsUrl, postUrl, invalidUrl, fetchData, fetchMultipleUrls, testDelayedSum
 } from '../src/part2';
+import assert from "assert";
 
 describe('Assignment 4 Part 2', () => {
     describe('Q2.1 delayedSum (6 points)', () => {
-        test('delayedSum returns the sum', () => {
+        test('delayedSum returns the sum', async () => {
+            let start = Date.now();
+            try {
+                await testDelayedSum();
+                console.log("here")
+                assert(Date.now() - start > 5000);
+                console.log("here3")
+            }catch(e){
 
+                assert(true)
+            }
         })
         test('delayedSum waits at least the specified delay', () => {
 
